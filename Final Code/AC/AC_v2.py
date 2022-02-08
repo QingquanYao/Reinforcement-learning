@@ -137,6 +137,7 @@ def AC(env_name,
                 mean, std=Actor_network(current_state)
                 # print(mean)s
                 std=torch.exp(std)
+                print(std,mean)
                 policy=torch.distributions.normal.Normal(mean, std)
                 action=policy.sample()
                 log_policy=policy.log_prob(action).unsqueeze(-1)
@@ -213,7 +214,7 @@ def AC(env_name,
             # # for para in Actor_network.parameters():
             # #     print(para)
 
-            if done:
+            if done or t>max_timestep:
                 # print(accumulate_reward)
                 episode_reward.append(accumulate_reward)
                 episode_length.append(t)

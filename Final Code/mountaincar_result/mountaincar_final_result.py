@@ -5,9 +5,9 @@ import os,sys
 cwd = os.getcwd() 
 print(cwd)
 #load data
-episode_reward_result_AC=np.load("Final Code/cartpole_result/cartpole_result_AC_AC.npz")['episode_reward_result']
-episode_reward_result_DQN=np.load('Final Code/cartpole_result/cartpole_result_DQN_DQN_with_targetQ_with_buffer.npz')['episode_reward_result']
-episode_reward_result_random=np.load('Final Code/cartpole_result/pure_random_action.npz')['episode_reward_result']
+episode_reward_result_AC=np.load("Final Code/mountaincar_result/mountaincar_result_AC_AC.npz")['episode_reward_result']
+episode_reward_result_DQN=np.load('Final Code/mountaincar_result/mountaincar_result_DQN_DQN_with_targetQ_with_buffer.npz')['episode_reward_result']
+episode_reward_result_random=np.load('Final Code/mountaincar_result/pure_random_action.npz')['episode_reward_result']
 
 # print('Pure random policy:'+'\n mean:'+str(episode_reward_result_random.mean())+'\n std:'+str(episode_reward_result_random.std()))
 
@@ -32,8 +32,8 @@ print('Random Overall performance:'+str(episode_reward_result_random.mean())+'+-
 
 
 
-plt.plot(np.ones(1000)*195,'-.',color='r',label='Threshold')
-axs.set_title('Performances of DQN and AC in the cart-pole environment')
+plt.plot(np.ones(1000)*(-110),'-.',color='r',label='Threshold')
+axs.set_title('Performances of DQN and AC in the mountain car environment')
 axs.set_ylabel('Mean accumulated reward over past 10 episodes')   
 axs.legend()
 plt.subplots_adjust(hspace=1)

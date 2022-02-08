@@ -156,7 +156,7 @@ def DQN(env_name,
                     Q_target_network=Q_network
 
 
-            if done: 
+            if done or t>200: 
                 episode_reward.append(accumulate_reward)
                 episode_length.append(t)
                 break
