@@ -91,7 +91,7 @@ print('Random Overall performance:'+str(episode_reward_result_random.mean())+'+-
 
 
 axs[2].plot(np.ones(1000)*(-150),'-.',color='r')
-axs[2].set_title('Performances of DQN and AC in the nverted pendulum environment')
+axs[2].set_title('Performances of DQN and AC in the inverted pendulum environment')
 # axs[2].set_ylabel('Mean accumulated reward over past 10 episodes')   
 # axs[2].legend()
 
