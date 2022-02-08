@@ -111,7 +111,7 @@ def mean_and_std(result):
     r_min=r_mean-r_std
     return r_max,r_min,r_mean
 
-def plot_only_return(result,n,axs,color,label,threshold=None):
+def plot_only_return(result,n,axs,color,label=None,threshold=None):
     ma_result=moving_average(result,n)
     mar_max,mar_min,mar_mean=convert(ma_result)
     axs.plot(mar_max, color, linewidth=0.5)
@@ -119,10 +119,10 @@ def plot_only_return(result,n,axs,color,label,threshold=None):
     axs.plot(mar_mean, color, label=label, linewidth=2)
     x=np.arange(np.size(mar_mean)) 
     axs.fill_between(x, mar_min, mar_max, facecolor=color, alpha=0.3)
-    axs.set_title('Moving average of sum of rewards during episode over '+ str(n)+' episodes')
-    axs.set_xlabel('Episodes')
-    axs.set_ylabel('Sum of rewards during episode')    
-    axs.legend()
+    # axs.set_title('Moving average of sum of rewards during episode over '+ str(n)+' episodes')
+    # axs.set_xlabel('Episodes')
+    # axs.set_ylabel('Sum of rewards during episode')    
+    # axs.legend()
     ma_result_std=ma_result.std(axis=0)
     idx=np.where(mar_mean==mar_mean.max())
     maximum_idx=np.min(idx)
